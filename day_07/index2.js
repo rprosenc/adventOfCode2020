@@ -619,33 +619,24 @@ rules = {
 	'no other': {}	
 }
 rulesRaw.split('\n').map(rule => {
-	[container, contained] = rule.split(' bags contain ')
+	[container, bags] = rule.split(' bags contain ')
 	rules[container] = {}
-	contained.split(', ').forEach((b) => { 
-		rules[container][ b.replace(/^\d* /, '').replace(/ bag[s,.]*/g, '') ] = parseInt(b)  || 0
+	bags.split(', ').forEach((bag) => { 
+		color = bag.replace(/^\d* /, '').replace(/ bag[s,.]*/g, '')
+		rules[container][color] = parseInt(bag) || 0
 	});
 } )
 
-//console.log(rules);
-//console.log();
-
-processed = {}
-found = {};
-sum = 0;
-
 function sumBags(containerBag) {
-	// important to hold variable locally
 	const containedBags = rules[containerBag];
 
 	sum = 1;
+	// recursion only up to the leaves
 	for (bag in containedBags) {
 		sum += (containedBags[bag] * sumBags(bag));
 	}
-	// one for every bag - need to subtract 1 from result
 	return sum
-
 }
-
 
 console.log(sumBags(gold)-1)
 

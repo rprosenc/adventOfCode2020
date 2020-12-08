@@ -1,26 +1,14 @@
 
-groupAnswers = `abc
+const data = require("./data");
 
-a
-b
-c
-
-ab
-ac
-
-a
-a
-a
-a
-
-b`
+///const rows = data.test;
+const rawLines = data.real;
 
 
-rawLines = groupAnswers.split('\n')
-groups = []
-currentGroup = ''
+const groups = []
+let currentGroup = ''
 for(i=0; i<rawLines.length; i++) {
-	if (rawLines[i] == '') {
+	if (rawLines[i] === '') {
 		groups.push(currentGroup);
 		currentGroup = '';
 	} 
@@ -31,7 +19,7 @@ if (rawLines[i] !== '') {
 } 
 
 function uniq(d){
-	sum = 1;
+	let sum = 1;
 	d.split('').sort().reduce((a,c) => {if (a!=c) {sum++} return c} );
 	return sum;
 }

@@ -632,8 +632,6 @@ function findContainers(color, indent) {
 
 			findContainers(bag, indent+'   ')
 
-			/// count only root nodes
-			// found[bag] = true;  
 		}
 	}
 }

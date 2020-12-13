@@ -34,7 +34,7 @@ function rotate(p, a) {
             return [-p[1], p[0]];
     }
 
-    console.log('why here?', p, a)
+    console.log('why here?', p, a) // lol - because move('L') negates the degrees...
 
 }
 

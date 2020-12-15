@@ -58,7 +58,7 @@ function turnAt(starts, endTurn) {
     const cache = {}
     const label = starts.join(',')+':'+endTurn
     console.time(label);
-    const turns = starts.slice(0);
+    const turns = [...starts];
     // init cache and remove previous turn
     starts.forEach((n,i)=>getLastPosition(n,i, cache));
     while (turns.length < endTurn) {

@@ -261,7 +261,7 @@ zone: 48-306 or 317-974`,
 542,911,290,696,865,74,529,655,946,183,518,577,679,347,70,795,512,745,711,118`
 };
 
-const test = {
+const test1 = {
     rules: `class: 1-3 or 5-7
 row: 6-11 or 33-44
 seat: 13-40 or 45-50`,
@@ -273,7 +273,19 @@ seat: 13-40 or 45-50`,
 38,6,12`
 };
 
-module.exports = { real, test };
+const test2 = {
+    rules: `class: 0-1 or 4-19
+row: 0-5 or 8-19
+seat: 0-13 or 16-19`,
+    ticket: `
+11,12,13`,
+    nearbyTickets: `3,9,18
+15,1,5
+5,14,9`
+};
+
+
+module.exports = { real, test1, test2 };
 
 
 

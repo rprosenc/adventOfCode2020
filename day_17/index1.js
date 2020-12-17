@@ -1,7 +1,7 @@
 const data = require("./data");
 
-const mapZ0 = data.test;       /// result: 19208
-// const input = data.real;
+// const mapZ0 = data.test;       /// result: 19208
+const mapZ0 = data.real;
 
 
 const map = [mapZ0];
@@ -150,5 +150,4 @@ for(let i=1; i<=6; i++) {
 }
 
 console.log('Result:')
-console.log(print(c).replace(/[\n\.]/g,'').split('').length);
-
+console.log(print(c).replace(/[^#]/g,'').split('').length);
